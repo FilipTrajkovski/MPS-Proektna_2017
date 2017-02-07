@@ -6,3 +6,4 @@ main
 		Keypad_Key_Press
 			Delay_1us
 		Delay_10us
+	EEPROM_Read

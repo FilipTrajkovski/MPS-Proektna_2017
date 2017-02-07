@@ -82,6 +82,21 @@ void main()
 
  case 9:
  {
+ if(oldstate==5)
+ {
+ currentHeatA=EEPROM_Read(0x10);
+ PORTA=arrayStates[currentHeatA-1];
+ }
+ else if(oldstate==6)
+ {
+ currentHeatC=EEPROM_Read(0x10);
+ PORTC=arrayStates[currentHeatC-1];
+ }
+ else
+ {
+
+ started=1;
+ }
  break;
  }
 
@@ -99,6 +114,7 @@ void main()
  }
  else
  {
+
  currentHeatA=0;
  currentHeatC=0;
  started=0;
@@ -109,5 +125,6 @@ void main()
  }
  }
  oldstate=kp;
+ kp=0;
  }
 }

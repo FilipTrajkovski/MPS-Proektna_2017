@@ -81,6 +81,21 @@ void main()
                      // START pressed on Keypad
                      case 9:
                      {
+                          if(oldstate==5)
+                          {
+                                  currentHeatA=EEPROM_Read(0x10);
+                                  PORTA=arrayStates[currentHeatA-1];
+                          }
+                          else if(oldstate==6)
+                          {
+                                  currentHeatC=EEPROM_Read(0x10);
+                                  PORTC=arrayStates[currentHeatC-1];
+                          }
+                          else
+                          {
+                                  //Delay_ms(EEPROM_Read(0x00));
+                                  started=1;
+                          }
                           break;
                      }
                      // END pressed on Keypad
@@ -98,6 +113,7 @@ void main()
                          }
                          else
                          {
+                              //Delay_ms(EEPROM_Read(0x00));
                               currentHeatA=0;
                               currentHeatC=0;
                               started=0;
@@ -108,5 +124,6 @@ void main()
                      }
           }
           oldstate=kp;
+          kp=0;
      }
 }
