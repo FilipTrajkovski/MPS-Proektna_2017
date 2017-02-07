@@ -1,3 +1,4 @@
 main
 	__CC2DW
 		____DoICP
+	EEPROM_Write
