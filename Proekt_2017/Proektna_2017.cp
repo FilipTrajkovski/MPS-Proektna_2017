@@ -66,6 +66,9 @@ void main()
 
  case 5:
  {
+ if(started==1){
+ rangeSelected=1;
+ }
  break;
  }
 

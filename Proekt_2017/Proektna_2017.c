@@ -65,6 +65,9 @@ void main()
                      // P1 pressed on Keypad
                      case 5:
                      {
+                          if(started==1){
+                               rangeSelected=1;
+                          }
                           break;
                      }
                      // P2 pressd on Keypad

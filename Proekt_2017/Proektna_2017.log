@@ -2,11 +2,11 @@
 hint: 0	1139	Available RAM: 352 [bytes], Available ROM: 8192 [bytes]	 
 diagnostics: 0	126	All files Preprocessed in 187 ms	 
 diagnostics: 0	122	Compilation Started	Proektna_2017.c
-diagnostics: 106	123	Compiled Successfully	Proektna_2017.c
-diagnostics: 0	127	All files Compiled in 219 ms	 
+diagnostics: 109	123	Compiled Successfully	Proektna_2017.c
+diagnostics: 0	127	All files Compiled in 187 ms	 
 hint: 0	1144	Used RAM (bytes): 44 (12%)  Free RAM (bytes): 308 (88%)	Used RAM (bytes): 44 (12%)  Free RAM (bytes): 308 (88%)
-hint: 0	1144	Used ROM (program words): 458 (6%)  Free ROM (program words): 7734 (94%)	Used ROM (program words): 458 (6%)  Free ROM (program words): 7734 (94%)
+hint: 0	1144	Used ROM (program words): 470 (6%)  Free ROM (program words): 7722 (94%)	Used ROM (program words): 470 (6%)  Free ROM (program words): 7722 (94%)
 diagnostics: 0	125	Project Linked Successfully	Proektna_2017.mcppi
-diagnostics: 0	128	Linked in 62 ms	 
-diagnostics: 0	129	Project 'Proektna_2017.mcppi' completed: 530 ms	 
-diagnostics: 0	103	Finished successfully: 07 фев 2017, 11:07:32	Proektna_2017.mcppi
+diagnostics: 0	128	Linked in 78 ms	 
+diagnostics: 0	129	Project 'Proektna_2017.mcppi' completed: 499 ms	 
+diagnostics: 0	103	Finished successfully: 07 фев 2017, 11:11:15	Proektna_2017.mcppi
