@@ -1,5 +1,6 @@
 char keypadPort at PORTD;
-int T1=20,V1=5,T2=25,started=0,rangeSelected=0,currentHeatA=0,currentHeatC=0;
+int T1=20,V1=5,T2=25,started=0,rangeSelected=0,currentHeatA=0,currentHeatC=0,i;
+int arrayStates[9]={0x6,0x5B,0x4F,0x66,0x6D,0x7D,0x07,0x7F,0x67};
 char kp,oldstate;
 void main() 
 {
@@ -10,7 +11,7 @@ void main()
      EEPROM_Write(0x00 , T1);
      EEPROM_Write(0x10 , V1);
      EEPROM_Write(0x20 , T2);
-     PORTA=0b01101101;
+     PORTA=0x6D;
      while(1)
      {
           while(!kp)
@@ -22,6 +23,22 @@ void main()
                      // + pressed on Keypad
                      case 1:
                      {
+                          if(rangeSelected==1)
+                          {
+                               if(currentHeatA+1!=10)
+                               {
+                                currentHeatA++;
+                               }
+                               PORTA=arrayStates[currentHeatA-1];
+                          }
+                          else if(rangeSelected==2)
+                          {
+                               if(currentHeatC+1!=10)
+                               {
+                                currentHeatC++;
+                               }
+                               PORTC=arrayStates[currentHeatC-1];
+                          }
                           break;
                      }
                      // - pressed on Keypad
@@ -63,7 +80,7 @@ void main()
                               currentHeatC=0;
                               started=0;
                               PORTC=0x00;
-                              PORTA=0b01101101;
+                              PORTA=0x6D;
                          }
                          break;
                      }

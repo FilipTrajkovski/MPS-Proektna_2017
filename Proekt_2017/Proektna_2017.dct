@@ -223,6 +223,7 @@ ans9
 ans9_bit
 ansel
 anselh
+arraystates
 asin
 atan
 atan2
@@ -578,6 +579,7 @@ go_not_done_bit
 halfbits
 hts
 hts_bit
+i
 i2c_data
 i2c_data_bit
 i2c_read
