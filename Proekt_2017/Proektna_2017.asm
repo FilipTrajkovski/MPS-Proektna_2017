@@ -75,33 +75,45 @@ L_main11:
 	GOTO       L_main12
 ;Proektna_2017.c,52 :: 		PORTA=0x00;
 	CLRF       PORTA+0
-;Proektna_2017.c,53 :: 		}
+;Proektna_2017.c,53 :: 		currentHeatA=0;
+	CLRF       _currentHeatA+0
+	CLRF       _currentHeatA+1
+;Proektna_2017.c,54 :: 		}
 	GOTO       L_main13
 L_main12:
-;Proektna_2017.c,54 :: 		else if(oldstate==6)
+;Proektna_2017.c,55 :: 		else if(oldstate==6)
 	MOVF       _oldstate+0, 0
 	XORLW      6
 	BTFSS      STATUS+0, 2
 	GOTO       L_main14
-;Proektna_2017.c,56 :: 		PORTC=0x00;
+;Proektna_2017.c,57 :: 		PORTC=0x00;
 	CLRF       PORTC+0
-;Proektna_2017.c,57 :: 		}
+;Proektna_2017.c,58 :: 		currentHeatC=0;
+	CLRF       _currentHeatC+0
+	CLRF       _currentHeatC+1
+;Proektna_2017.c,59 :: 		}
 	GOTO       L_main15
 L_main14:
-;Proektna_2017.c,60 :: 		started=0;
+;Proektna_2017.c,62 :: 		currentHeatA=0;
+	CLRF       _currentHeatA+0
+	CLRF       _currentHeatA+1
+;Proektna_2017.c,63 :: 		currentHeatC=0;
+	CLRF       _currentHeatC+0
+	CLRF       _currentHeatC+1
+;Proektna_2017.c,64 :: 		started=0;
 	CLRF       _started+0
 	CLRF       _started+1
-;Proektna_2017.c,61 :: 		PORTC=0x00;
+;Proektna_2017.c,65 :: 		PORTC=0x00;
 	CLRF       PORTC+0
-;Proektna_2017.c,62 :: 		PORTA=0b01101101;
+;Proektna_2017.c,66 :: 		PORTA=0b01101101;
 	MOVLW      109
 	MOVWF      PORTA+0
-;Proektna_2017.c,63 :: 		}
+;Proektna_2017.c,67 :: 		}
 L_main15:
 L_main13:
-;Proektna_2017.c,64 :: 		break;
+;Proektna_2017.c,68 :: 		break;
 	GOTO       L_main5
-;Proektna_2017.c,66 :: 		}
+;Proektna_2017.c,70 :: 		}
 L_main4:
 	MOVF       _kp+0, 0
 	XORLW      1
@@ -128,12 +140,12 @@ L_main4:
 	BTFSC      STATUS+0, 2
 	GOTO       L_main11
 L_main5:
-;Proektna_2017.c,67 :: 		oldstate=kp;
+;Proektna_2017.c,71 :: 		oldstate=kp;
 	MOVF       _kp+0, 0
 	MOVWF      _oldstate+0
-;Proektna_2017.c,68 :: 		}
+;Proektna_2017.c,72 :: 		}
 	GOTO       L_main0
-;Proektna_2017.c,69 :: 		}
+;Proektna_2017.c,73 :: 		}
 L_end_main:
 	GOTO       $+0
 ; end of _main

@@ -1,5 +1,5 @@
 char keypadPort at PORTD;
-int T1=20,V1=5,T2=25,started=0,rangeSelected=0;
+int T1=20,V1=5,T2=25,started=0,rangeSelected=0,currentHeatA=0,currentHeatC=0;
 char kp,oldstate;
 void main() 
 {
@@ -50,13 +50,17 @@ void main()
                          if(oldstate==5)
                          {
                               PORTA=0x00;
+                              currentHeatA=0;
                          }
                          else if(oldstate==6)
                          {
                               PORTC=0x00;
+                              currentHeatC=0;
                          }
                          else
                          {
+                              currentHeatA=0;
+                              currentHeatC=0;
                               started=0;
                               PORTC=0x00;
                               PORTA=0b01101101;
