@@ -1324,6 +1324,7 @@ t0if
 t0if_bit
 t0se
 t0se_bit
+t1
 t1ckps0
 t1ckps0_bit
 t1ckps1
@@ -1340,6 +1341,7 @@ t1oscen
 t1oscen_bit
 t1sync
 t1sync_bit
+t2
 t2ckps0
 t2ckps0_bit
 t2ckps1
@@ -1550,6 +1552,7 @@ ulpwuie
 ulpwuie_bit
 ulpwuif
 ulpwuif_bit
+v1
 vcfg0
 vcfg0_bit
 vcfg1
