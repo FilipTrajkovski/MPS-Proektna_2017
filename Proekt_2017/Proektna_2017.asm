@@ -68,9 +68,40 @@ L_main10:
 	GOTO       L_main5
 ;Proektna_2017.c,48 :: 		case 10:
 L_main11:
-;Proektna_2017.c,50 :: 		break;
+;Proektna_2017.c,50 :: 		if(oldstate==5)
+	MOVF       _oldstate+0, 0
+	XORLW      5
+	BTFSS      STATUS+0, 2
+	GOTO       L_main12
+;Proektna_2017.c,52 :: 		PORTA=0x00;
+	CLRF       PORTA+0
+;Proektna_2017.c,53 :: 		}
+	GOTO       L_main13
+L_main12:
+;Proektna_2017.c,54 :: 		else if(oldstate==6)
+	MOVF       _oldstate+0, 0
+	XORLW      6
+	BTFSS      STATUS+0, 2
+	GOTO       L_main14
+;Proektna_2017.c,56 :: 		PORTC=0x00;
+	CLRF       PORTC+0
+;Proektna_2017.c,57 :: 		}
+	GOTO       L_main15
+L_main14:
+;Proektna_2017.c,60 :: 		started=0;
+	CLRF       _started+0
+	CLRF       _started+1
+;Proektna_2017.c,61 :: 		PORTC=0x00;
+	CLRF       PORTC+0
+;Proektna_2017.c,62 :: 		PORTA=0b01101101;
+	MOVLW      109
+	MOVWF      PORTA+0
+;Proektna_2017.c,63 :: 		}
+L_main15:
+L_main13:
+;Proektna_2017.c,64 :: 		break;
 	GOTO       L_main5
-;Proektna_2017.c,52 :: 		}
+;Proektna_2017.c,66 :: 		}
 L_main4:
 	MOVF       _kp+0, 0
 	XORLW      1
@@ -97,12 +128,12 @@ L_main4:
 	BTFSC      STATUS+0, 2
 	GOTO       L_main11
 L_main5:
-;Proektna_2017.c,53 :: 		oldstate=kp;
+;Proektna_2017.c,67 :: 		oldstate=kp;
 	MOVF       _kp+0, 0
 	MOVWF      _oldstate+0
-;Proektna_2017.c,54 :: 		}
+;Proektna_2017.c,68 :: 		}
 	GOTO       L_main0
-;Proektna_2017.c,55 :: 		}
+;Proektna_2017.c,69 :: 		}
 L_end_main:
 	GOTO       $+0
 ; end of _main

@@ -48,6 +48,20 @@ void main()
 
  case 10:
  {
+ if(oldstate==5)
+ {
+ PORTA=0x00;
+ }
+ else if(oldstate==6)
+ {
+ PORTC=0x00;
+ }
+ else
+ {
+ started=0;
+ PORTC=0x00;
+ PORTA=0b01101101;
+ }
  break;
  }
  }
