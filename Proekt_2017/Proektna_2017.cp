@@ -45,6 +45,22 @@ void main()
 
  case 2:
  {
+ if(rangeSelected==1)
+ {
+ if(currentHeatA-1!=0)
+ {
+ currentHeatA--;
+ }
+ PORTA=arrayStates[currentHeatA-1];
+ }
+ else if(rangeSelected==2)
+ {
+ if(currentHeatC-1!=0)
+ {
+ currentHeatC--;
+ }
+ PORTC=arrayStates[currentHeatC-1];
+ }
  break;
  }
 
