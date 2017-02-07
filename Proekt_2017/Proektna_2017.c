@@ -23,7 +23,7 @@ void main()
                      // + pressed on Keypad
                      case 1:
                      {
-                          if(rangeSelected==1)
+                          if(rangeSelected==1 && started==1)
                           {
                                if(currentHeatA+1!=10)
                                {
@@ -31,7 +31,7 @@ void main()
                                }
                                PORTA=arrayStates[currentHeatA-1];
                           }
-                          else if(rangeSelected==2)
+                          else if(rangeSelected==2 && started==1)
                           {
                                if(currentHeatC+1!=10)
                                {
@@ -44,7 +44,7 @@ void main()
                      // - pressed on Keypad
                      case 2: 
                      {
-                          if(rangeSelected==1)
+                          if(rangeSelected==1  && started==1)
                           {
                                if(currentHeatA-1!=0)
                                {
@@ -52,7 +52,7 @@ void main()
                                }
                                PORTA=arrayStates[currentHeatA-1];
                           }
-                          else if(rangeSelected==2)
+                          else if(rangeSelected==2  && started==1)
                           {
                                if(currentHeatC-1!=0)
                                {

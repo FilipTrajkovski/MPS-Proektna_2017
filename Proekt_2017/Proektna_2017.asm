@@ -48,16 +48,26 @@ L_main3:
 	GOTO       L_main4
 ;Proektna_2017.c,24 :: 		case 1:
 L_main6:
-;Proektna_2017.c,26 :: 		if(rangeSelected==1)
+;Proektna_2017.c,26 :: 		if(rangeSelected==1 && started==1)
 	MOVLW      0
 	XORWF      _rangeSelected+1, 0
 	BTFSS      STATUS+0, 2
-	GOTO       L__main29
+	GOTO       L__main41
 	MOVLW      1
 	XORWF      _rangeSelected+0, 0
-L__main29:
+L__main41:
 	BTFSS      STATUS+0, 2
-	GOTO       L_main7
+	GOTO       L_main9
+	MOVLW      0
+	XORWF      _started+1, 0
+	BTFSS      STATUS+0, 2
+	GOTO       L__main42
+	MOVLW      1
+	XORWF      _started+0, 0
+L__main42:
+	BTFSS      STATUS+0, 2
+	GOTO       L_main9
+L__main39:
 ;Proektna_2017.c,28 :: 		if(currentHeatA+1!=10)
 	MOVF       _currentHeatA+0, 0
 	ADDLW      1
@@ -70,18 +80,18 @@ L__main29:
 	MOVLW      0
 	XORWF      R1+1, 0
 	BTFSS      STATUS+0, 2
-	GOTO       L__main30
+	GOTO       L__main43
 	MOVLW      10
 	XORWF      R1+0, 0
-L__main30:
+L__main43:
 	BTFSC      STATUS+0, 2
-	GOTO       L_main8
+	GOTO       L_main10
 ;Proektna_2017.c,30 :: 		currentHeatA++;
 	INCF       _currentHeatA+0, 1
 	BTFSC      STATUS+0, 2
 	INCF       _currentHeatA+1, 1
 ;Proektna_2017.c,31 :: 		}
-L_main8:
+L_main10:
 ;Proektna_2017.c,32 :: 		PORTA=arrayStates[currentHeatA-1];
 	MOVLW      1
 	SUBWF      _currentHeatA+0, 0
@@ -104,18 +114,28 @@ L_main8:
 	MOVF       INDF+0, 0
 	MOVWF      PORTA+0
 ;Proektna_2017.c,33 :: 		}
-	GOTO       L_main9
-L_main7:
-;Proektna_2017.c,34 :: 		else if(rangeSelected==2)
+	GOTO       L_main11
+L_main9:
+;Proektna_2017.c,34 :: 		else if(rangeSelected==2 && started==1)
 	MOVLW      0
 	XORWF      _rangeSelected+1, 0
 	BTFSS      STATUS+0, 2
-	GOTO       L__main31
+	GOTO       L__main44
 	MOVLW      2
 	XORWF      _rangeSelected+0, 0
-L__main31:
+L__main44:
 	BTFSS      STATUS+0, 2
-	GOTO       L_main10
+	GOTO       L_main14
+	MOVLW      0
+	XORWF      _started+1, 0
+	BTFSS      STATUS+0, 2
+	GOTO       L__main45
+	MOVLW      1
+	XORWF      _started+0, 0
+L__main45:
+	BTFSS      STATUS+0, 2
+	GOTO       L_main14
+L__main38:
 ;Proektna_2017.c,36 :: 		if(currentHeatC+1!=10)
 	MOVF       _currentHeatC+0, 0
 	ADDLW      1
@@ -128,18 +148,18 @@ L__main31:
 	MOVLW      0
 	XORWF      R1+1, 0
 	BTFSS      STATUS+0, 2
-	GOTO       L__main32
+	GOTO       L__main46
 	MOVLW      10
 	XORWF      R1+0, 0
-L__main32:
+L__main46:
 	BTFSC      STATUS+0, 2
-	GOTO       L_main11
+	GOTO       L_main15
 ;Proektna_2017.c,38 :: 		currentHeatC++;
 	INCF       _currentHeatC+0, 1
 	BTFSC      STATUS+0, 2
 	INCF       _currentHeatC+1, 1
 ;Proektna_2017.c,39 :: 		}
-L_main11:
+L_main15:
 ;Proektna_2017.c,40 :: 		PORTC=arrayStates[currentHeatC-1];
 	MOVLW      1
 	SUBWF      _currentHeatC+0, 0
@@ -162,22 +182,32 @@ L_main11:
 	MOVF       INDF+0, 0
 	MOVWF      PORTC+0
 ;Proektna_2017.c,41 :: 		}
-L_main10:
-L_main9:
+L_main14:
+L_main11:
 ;Proektna_2017.c,42 :: 		break;
 	GOTO       L_main5
 ;Proektna_2017.c,45 :: 		case 2:
-L_main12:
-;Proektna_2017.c,47 :: 		if(rangeSelected==1)
+L_main16:
+;Proektna_2017.c,47 :: 		if(rangeSelected==1  && started==1)
 	MOVLW      0
 	XORWF      _rangeSelected+1, 0
 	BTFSS      STATUS+0, 2
-	GOTO       L__main33
+	GOTO       L__main47
 	MOVLW      1
 	XORWF      _rangeSelected+0, 0
-L__main33:
+L__main47:
 	BTFSS      STATUS+0, 2
-	GOTO       L_main13
+	GOTO       L_main19
+	MOVLW      0
+	XORWF      _started+1, 0
+	BTFSS      STATUS+0, 2
+	GOTO       L__main48
+	MOVLW      1
+	XORWF      _started+0, 0
+L__main48:
+	BTFSS      STATUS+0, 2
+	GOTO       L_main19
+L__main37:
 ;Proektna_2017.c,49 :: 		if(currentHeatA-1!=0)
 	MOVLW      1
 	SUBWF      _currentHeatA+0, 0
@@ -190,19 +220,19 @@ L__main33:
 	MOVLW      0
 	XORWF      R1+1, 0
 	BTFSS      STATUS+0, 2
-	GOTO       L__main34
+	GOTO       L__main49
 	MOVLW      0
 	XORWF      R1+0, 0
-L__main34:
+L__main49:
 	BTFSC      STATUS+0, 2
-	GOTO       L_main14
+	GOTO       L_main20
 ;Proektna_2017.c,51 :: 		currentHeatA--;
 	MOVLW      1
 	SUBWF      _currentHeatA+0, 1
 	BTFSS      STATUS+0, 0
 	DECF       _currentHeatA+1, 1
 ;Proektna_2017.c,52 :: 		}
-L_main14:
+L_main20:
 ;Proektna_2017.c,53 :: 		PORTA=arrayStates[currentHeatA-1];
 	MOVLW      1
 	SUBWF      _currentHeatA+0, 0
@@ -225,18 +255,28 @@ L_main14:
 	MOVF       INDF+0, 0
 	MOVWF      PORTA+0
 ;Proektna_2017.c,54 :: 		}
-	GOTO       L_main15
-L_main13:
-;Proektna_2017.c,55 :: 		else if(rangeSelected==2)
+	GOTO       L_main21
+L_main19:
+;Proektna_2017.c,55 :: 		else if(rangeSelected==2  && started==1)
 	MOVLW      0
 	XORWF      _rangeSelected+1, 0
 	BTFSS      STATUS+0, 2
-	GOTO       L__main35
+	GOTO       L__main50
 	MOVLW      2
 	XORWF      _rangeSelected+0, 0
-L__main35:
+L__main50:
 	BTFSS      STATUS+0, 2
-	GOTO       L_main16
+	GOTO       L_main24
+	MOVLW      0
+	XORWF      _started+1, 0
+	BTFSS      STATUS+0, 2
+	GOTO       L__main51
+	MOVLW      1
+	XORWF      _started+0, 0
+L__main51:
+	BTFSS      STATUS+0, 2
+	GOTO       L_main24
+L__main36:
 ;Proektna_2017.c,57 :: 		if(currentHeatC-1!=0)
 	MOVLW      1
 	SUBWF      _currentHeatC+0, 0
@@ -249,19 +289,19 @@ L__main35:
 	MOVLW      0
 	XORWF      R1+1, 0
 	BTFSS      STATUS+0, 2
-	GOTO       L__main36
+	GOTO       L__main52
 	MOVLW      0
 	XORWF      R1+0, 0
-L__main36:
+L__main52:
 	BTFSC      STATUS+0, 2
-	GOTO       L_main17
+	GOTO       L_main25
 ;Proektna_2017.c,59 :: 		currentHeatC--;
 	MOVLW      1
 	SUBWF      _currentHeatC+0, 1
 	BTFSS      STATUS+0, 0
 	DECF       _currentHeatC+1, 1
 ;Proektna_2017.c,60 :: 		}
-L_main17:
+L_main25:
 ;Proektna_2017.c,61 :: 		PORTC=arrayStates[currentHeatC-1];
 	MOVLW      1
 	SUBWF      _currentHeatC+0, 0
@@ -284,84 +324,84 @@ L_main17:
 	MOVF       INDF+0, 0
 	MOVWF      PORTC+0
 ;Proektna_2017.c,62 :: 		}
-L_main16:
-L_main15:
+L_main24:
+L_main21:
 ;Proektna_2017.c,63 :: 		break;
 	GOTO       L_main5
 ;Proektna_2017.c,66 :: 		case 5:
-L_main18:
+L_main26:
 ;Proektna_2017.c,68 :: 		if(started==1){
 	MOVLW      0
 	XORWF      _started+1, 0
 	BTFSS      STATUS+0, 2
-	GOTO       L__main37
+	GOTO       L__main53
 	MOVLW      1
 	XORWF      _started+0, 0
-L__main37:
+L__main53:
 	BTFSS      STATUS+0, 2
-	GOTO       L_main19
+	GOTO       L_main27
 ;Proektna_2017.c,69 :: 		rangeSelected=1;
 	MOVLW      1
 	MOVWF      _rangeSelected+0
 	MOVLW      0
 	MOVWF      _rangeSelected+1
 ;Proektna_2017.c,70 :: 		}
-L_main19:
+L_main27:
 ;Proektna_2017.c,71 :: 		break;
 	GOTO       L_main5
 ;Proektna_2017.c,74 :: 		case 6:
-L_main20:
+L_main28:
 ;Proektna_2017.c,76 :: 		if(started==1){
 	MOVLW      0
 	XORWF      _started+1, 0
 	BTFSS      STATUS+0, 2
-	GOTO       L__main38
+	GOTO       L__main54
 	MOVLW      1
 	XORWF      _started+0, 0
-L__main38:
+L__main54:
 	BTFSS      STATUS+0, 2
-	GOTO       L_main21
+	GOTO       L_main29
 ;Proektna_2017.c,77 :: 		rangeSelected=2;
 	MOVLW      2
 	MOVWF      _rangeSelected+0
 	MOVLW      0
 	MOVWF      _rangeSelected+1
 ;Proektna_2017.c,78 :: 		}
-L_main21:
+L_main29:
 ;Proektna_2017.c,79 :: 		break;
 	GOTO       L_main5
 ;Proektna_2017.c,82 :: 		case 9:
-L_main22:
+L_main30:
 ;Proektna_2017.c,84 :: 		break;
 	GOTO       L_main5
 ;Proektna_2017.c,87 :: 		case 10:
-L_main23:
+L_main31:
 ;Proektna_2017.c,89 :: 		if(oldstate==5)
 	MOVF       _oldstate+0, 0
 	XORLW      5
 	BTFSS      STATUS+0, 2
-	GOTO       L_main24
+	GOTO       L_main32
 ;Proektna_2017.c,91 :: 		PORTA=0x00;
 	CLRF       PORTA+0
 ;Proektna_2017.c,92 :: 		currentHeatA=0;
 	CLRF       _currentHeatA+0
 	CLRF       _currentHeatA+1
 ;Proektna_2017.c,93 :: 		}
-	GOTO       L_main25
-L_main24:
+	GOTO       L_main33
+L_main32:
 ;Proektna_2017.c,94 :: 		else if(oldstate==6)
 	MOVF       _oldstate+0, 0
 	XORLW      6
 	BTFSS      STATUS+0, 2
-	GOTO       L_main26
+	GOTO       L_main34
 ;Proektna_2017.c,96 :: 		PORTC=0x00;
 	CLRF       PORTC+0
 ;Proektna_2017.c,97 :: 		currentHeatC=0;
 	CLRF       _currentHeatC+0
 	CLRF       _currentHeatC+1
 ;Proektna_2017.c,98 :: 		}
-	GOTO       L_main27
-L_main26:
+	GOTO       L_main35
+L_main34:
 ;Proektna_2017.c,101 :: 		currentHeatA=0;
 	CLRF       _currentHeatA+0
 	CLRF       _currentHeatA+1
@@ -377,8 +417,8 @@ L_main26:
 	MOVLW      109
 	MOVWF      PORTA+0
 ;Proektna_2017.c,106 :: 		}
-L_main27:
-L_main25:
+L_main35:
+L_main33:
 ;Proektna_2017.c,107 :: 		break;
 	GOTO       L_main5
 ;Proektna_2017.c,109 :: 		}
@@ -390,23 +430,23 @@ L_main4:
 	MOVF       _kp+0, 0
 	XORLW      2
 	BTFSC      STATUS+0, 2
-	GOTO       L_main12
+	GOTO       L_main16
 	MOVF       _kp+0, 0
 	XORLW      5
 	BTFSC      STATUS+0, 2
-	GOTO       L_main18
+	GOTO       L_main26
 	MOVF       _kp+0, 0
 	XORLW      6
 	BTFSC      STATUS+0, 2
-	GOTO       L_main20
+	GOTO       L_main28
 	MOVF       _kp+0, 0
 	XORLW      9
 	BTFSC      STATUS+0, 2
-	GOTO       L_main22
+	GOTO       L_main30
 	MOVF       _kp+0, 0
 	XORLW      10
 	BTFSC      STATUS+0, 2
-	GOTO       L_main23
+	GOTO       L_main31
 L_main5:
 ;Proektna_2017.c,110 :: 		oldstate=kp;
 	MOVF       _kp+0, 0
