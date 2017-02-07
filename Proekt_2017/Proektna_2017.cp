@@ -9,4 +9,5 @@ void main() {
  EEPROM_Write(0x00 , T1);
  EEPROM_Write(0x10 , V1);
  EEPROM_Write(0x20 , T2);
+ PORTA=0b01101101;
 }

@@ -27,7 +27,10 @@ _main:
 	MOVF       _T2+0, 0
 	MOVWF      FARG_EEPROM_Write_data_+0
 	CALL       _EEPROM_Write+0
-;Proektna_2017.c,11 :: 		}
+;Proektna_2017.c,11 :: 		PORTA=0b01101101;
+	MOVLW      109
+	MOVWF      PORTA+0
+;Proektna_2017.c,12 :: 		}
 L_end_main:
 	GOTO       $+0
 ; end of _main
