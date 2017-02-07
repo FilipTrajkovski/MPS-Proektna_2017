@@ -643,6 +643,7 @@ isxdigit
 keypad_init
 keypad_key_click
 keypad_key_press
+keypadport
 labs
 lcd_chr
 lcd_chr_cp
@@ -1383,7 +1384,6 @@ t6963c_writecommand
 t6963c_writedata
 tan
 tanh
-te
 time_datetoepoch
 time_epochtodate
 time_jd1970
