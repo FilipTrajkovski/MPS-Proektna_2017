@@ -2,3 +2,7 @@ main
 	__CC2DW
 		____DoICP
 	EEPROM_Write
+	Keypad_Key_Click
+		Keypad_Key_Press
+			Delay_1us
+		Delay_10us

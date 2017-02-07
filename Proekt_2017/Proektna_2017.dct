@@ -644,6 +644,7 @@ keypad_init
 keypad_key_click
 keypad_key_press
 keypadport
+kp
 labs
 lcd_chr
 lcd_chr_cp
@@ -753,6 +754,7 @@ nrm3232
 nrm4032
 oerr
 oerr_bit
+oldstate
 option_reg
 osccon
 osctune
