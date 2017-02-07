@@ -46,31 +46,31 @@ L_main2:
 L_main3:
 ;Proektna_2017.c,20 :: 		switch(kp)
 	GOTO       L_main4
-;Proektna_2017.c,22 :: 		case 1:
+;Proektna_2017.c,23 :: 		case 1:
 L_main6:
-;Proektna_2017.c,24 :: 		break;
+;Proektna_2017.c,25 :: 		break;
 	GOTO       L_main5
-;Proektna_2017.c,26 :: 		case 2:
+;Proektna_2017.c,28 :: 		case 2:
 L_main7:
-;Proektna_2017.c,28 :: 		break;
+;Proektna_2017.c,30 :: 		break;
 	GOTO       L_main5
-;Proektna_2017.c,30 :: 		case 5:
+;Proektna_2017.c,33 :: 		case 5:
 L_main8:
-;Proektna_2017.c,32 :: 		break;
+;Proektna_2017.c,35 :: 		break;
 	GOTO       L_main5
-;Proektna_2017.c,34 :: 		case 6:
+;Proektna_2017.c,38 :: 		case 6:
 L_main9:
-;Proektna_2017.c,36 :: 		break;
-	GOTO       L_main5
-;Proektna_2017.c,38 :: 		case 9:
-L_main10:
 ;Proektna_2017.c,40 :: 		break;
 	GOTO       L_main5
-;Proektna_2017.c,42 :: 		case 10:
-L_main11:
-;Proektna_2017.c,44 :: 		break;
+;Proektna_2017.c,43 :: 		case 9:
+L_main10:
+;Proektna_2017.c,45 :: 		break;
 	GOTO       L_main5
-;Proektna_2017.c,46 :: 		}
+;Proektna_2017.c,48 :: 		case 10:
+L_main11:
+;Proektna_2017.c,50 :: 		break;
+	GOTO       L_main5
+;Proektna_2017.c,52 :: 		}
 L_main4:
 	MOVF       _kp+0, 0
 	XORLW      1
@@ -97,12 +97,12 @@ L_main4:
 	BTFSC      STATUS+0, 2
 	GOTO       L_main11
 L_main5:
-;Proektna_2017.c,47 :: 		oldstate=kp;
+;Proektna_2017.c,53 :: 		oldstate=kp;
 	MOVF       _kp+0, 0
 	MOVWF      _oldstate+0
-;Proektna_2017.c,48 :: 		}
+;Proektna_2017.c,54 :: 		}
 	GOTO       L_main0
-;Proektna_2017.c,49 :: 		}
+;Proektna_2017.c,55 :: 		}
 L_end_main:
 	GOTO       $+0
 ; end of _main

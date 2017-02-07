@@ -1,5 +1,5 @@
 char keypadPort at PORTD;
-int T1=20,V1=5,T2=25,started=0;
+int T1=20,V1=5,T2=25,started=0,rangeSelected=0;
 char kp,oldstate;
 void main() 
 {
@@ -19,29 +19,35 @@ void main()
           }
           switch(kp)
           {
+                     // + pressed on Keypad
                      case 1:
                      {
                           break;
                      }
+                     // - pressed on Keypad
                      case 2: 
                      {
                           break;
                      }
+                     // P1 pressed on Keypad
                      case 5:
                      {
                           break;
                      }
+                     // P2 pressd on Keypad
                      case 6:
                      {
                           break;
                      }
+                     // START pressed on Keypad
                      case 9:
                      {
                           break;
                      }
+                     // END pressed on Keypad
                      case 10:
                      {
-                          break;
+                         break;
                      }
           }
           oldstate=kp;
