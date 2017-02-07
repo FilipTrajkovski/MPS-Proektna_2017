@@ -1,5 +1,6 @@
 char keypadPort at PORTD;
-int T1=20,V1=5,T2=25,started=0,rangeSelected=0,currentHeatA=0,currentHeatC=0,i;
+const int T1=20,V1=4,T2=25;
+int started=0,rangeSelected=0,currentHeatA=0,currentHeatC=0,i;
 int arrayStates[9]={0x6,0x5B,0x4F,0x66,0x6D,0x7D,0x07,0x7F,0x67};
 char kp,oldstate;
 void main() 
@@ -23,7 +24,7 @@ void main()
                      // + pressed on Keypad
                      case 1:
                      {
-                          if(rangeSelected==1 && started==1)
+                          if(rangeSelected==1 && currentHeatA!=0)
                           {
                                if(currentHeatA+1!=10)
                                {
@@ -31,7 +32,7 @@ void main()
                                }
                                PORTA=arrayStates[currentHeatA-1];
                           }
-                          else if(rangeSelected==2 && started==1)
+                          else if(rangeSelected==2 && currentHeatC!=0)
                           {
                                if(currentHeatC+1!=10)
                                {
@@ -81,12 +82,12 @@ void main()
                      // START pressed on Keypad
                      case 9:
                      {
-                          if(oldstate==5)
+                          if(oldstate==5 && started==1)
                           {
                                   currentHeatA=EEPROM_Read(0x10);
                                   PORTA=arrayStates[currentHeatA-1];
                           }
-                          else if(oldstate==6)
+                          else if(oldstate==6 && started==1)
                           {
                                   currentHeatC=EEPROM_Read(0x10);
                                   PORTC=arrayStates[currentHeatC-1];
@@ -94,6 +95,8 @@ void main()
                           else
                           {
                                   //Delay_ms(EEPROM_Read(0x00));
+                                  Delay_ms(T1);
+                                  PORTA=0x00;
                                   started=1;
                           }
                           break;
@@ -105,15 +108,18 @@ void main()
                          {
                               PORTA=0x00;
                               currentHeatA=0;
+                              rangeSelected=0;
                          }
                          else if(oldstate==6)
                          {
                               PORTC=0x00;
                               currentHeatC=0;
+                              rangeSelected=0;
                          }
                          else
                          {
-                              //Delay_ms(EEPROM_Read(0x00));
+                              //Delay_ms(EEPROM_Read(0x20));
+                              Delay_ms(T2);
                               currentHeatA=0;
                               currentHeatC=0;
                               started=0;
